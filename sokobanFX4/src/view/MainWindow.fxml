@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<?import view.LevelDisplayer?>
+
+<BorderPane prefHeight="500.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8.0.102" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.MainWindowLogic">
+   <top>
+      <MenuBar prefHeight="33.0" prefWidth="300.0" BorderPane.alignment="CENTER">
+        <menus>
+          <Menu mnemonicParsing="false" text="File">
+            <items>
+                  <MenuItem mnemonicParsing="false" onAction="#Load" text="Load" />
+                  <MenuItem mnemonicParsing="false" onAction="#Save" text="Save" />
+              <MenuItem mnemonicParsing="false" onAction="#close" text="Exit" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Settings">
+            <items>
+              <MenuItem mnemonicParsing="false" onAction="#UpChanger" text="up key" />
+                  <MenuItem mnemonicParsing="false" onAction="#LeftChanger" text="left key" />
+                  <MenuItem mnemonicParsing="false" onAction="#DownChanger" text="down key" />
+                  <MenuItem mnemonicParsing="false" onAction="#RightChanger" text="right key" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Help">
+            <items>
+              <MenuItem mnemonicParsing="false" text="About" />
+            </items>
+          </Menu>
+        </menus>
+      </MenuBar>
+   </top>
+   <left>
+      <VBox BorderPane.alignment="CENTER">
+         <children>
+            <Button mnemonicParsing="false" onAction="#Start_music" prefHeight="25.0" prefWidth="75.0" text="Start music" />
+            <Button mnemonicParsing="false" onAction="#stop_music" prefHeight="25.0" prefWidth="75.0" text="Stop music" />
+            <Button mnemonicParsing="false" onAction="#Table_open" prefHeight="25.0" prefWidth="76.0" text="tables" />
+            <Button fx:id="solve" mnemonicParsing="false" onAction="#solveLevel" prefHeight="25.0" prefWidth="76.0" text="solve lvl" />
+            <Button fx:id="hint" mnemonicParsing="false" onAction="#HintLevel" prefHeight="25.0" prefWidth="77.0" text="hint" />
+            <TextArea fx:id="hintFIeld" editable="false" prefHeight="200.0" prefWidth="0.0" />
+         </children>
+         <padding>
+            <Insets top="10.0" />
+         </padding>
+      </VBox>
+   </left>
+   <bottom>
+      <HBox BorderPane.alignment="CENTER">
+         <children>
+            <TextField fx:id="name" visible="false" />
+            <Button fx:id="boop" disable="true" mnemonicParsing="false" onAction="#register_player_score" text="send" visible="false" />
+            <Label fx:id="lab" alignment="BOTTOM_RIGHT" contentDisplay="RIGHT" prefHeight="101.0" prefWidth="493.0" text="you have won!!!" textAlignment="CENTER" textFill="#ddcd1a" visible="false">
+               <font>
+                  <Font size="69.0" />
+               </font>
+            </Label>
+         </children>
+         <BorderPane.margin>
+            <Insets />
+         </BorderPane.margin>
+         <padding>
+            <Insets left="10.0" top="10.0" />
+         </padding>
+      </HBox>
+   </bottom>
+   <right>
+   	<VBox BorderPane.alignment="CENTER">
+   		<children>
+   			<Label fx:id="time" text="time: 0sec">
+               <font>
+                  <Font size="24.0" />
+               </font></Label>
+   			<Label fx:id="steps" text="steps: 0">
+               <font>
+                  <Font size="24.0" />
+               </font></Label>
+   		</children>
+   		<padding>
+   			<Insets left="10.0" right="20.0" top="20.0" />
+   		</padding>
+   	</VBox>
+   </right>
+<center>
+   <LevelDisplayer fx:id = "displayer" height="300.0" width="300.0" BorderPane.alignment="CENTER"
+		wallpic="./resources/graphics/wall4.png"
+		floorpic="./resources/graphics/grass.png"
+		sokobanpic="./resources/graphics/player2.png"
+		targetpic="./resources/graphics/target2.png"
+		boxpic="./resources/graphics/donut2.png"
+		up_Key="W"
+		down_Key="s"
+		left_Key="a"
+		right_Key="d"/>
+   </center>
+</BorderPane>
